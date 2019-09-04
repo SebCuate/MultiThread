@@ -1,6 +1,6 @@
-package thread1.demo3;
+package basic;
 
-public class App {
+public class App3 {
 
 	public static void main(String[] args) {
 		
