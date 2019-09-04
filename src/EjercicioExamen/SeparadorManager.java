@@ -19,21 +19,22 @@ public class SeparadorManager {
 	public static void main(String[] args) {
 		
 		int numHilos = 5;
-		int limit = 112;
+		int limit = 777;
 		String path =  "/home/elcuato/Documents/Workspaces/HackerRank/archivos/";
 		String fileName = "/home/elcuato/Documents/Workspaces/HackerRank/ejemploTXT.txt";
+		String fileLog= "/home/elcuato/Documents/Workspaces/HackerRank/Server.log";
 		
 		long init = System.currentTimeMillis(); // Instante inicial del procesamiento
 		
 		List<String> files = new ArrayList<>();// check the method to get the file list	
 		files = divideTXT(fileName, path, limit);
 		
-		executeThreads(files, numHilos);
+		executeThreads(files, numHilos, fileLog);
 
 		//PRINT RESULTS
 		long fin = System.currentTimeMillis(); // Instante final del procesamiento
 		
-		System.out.println("Execution time: " + (fin-init));// convert to Server.log
+		System.out.println("Execution time: " + (fin-init) +" miliseconds");// convert to Server.log
 	}
 	
 	
@@ -42,11 +43,11 @@ public class SeparadorManager {
 		return new DivideArchivo().divideArchivo(fileName, path, limit);
 	}
 	
-	private static void executeThreads(List<String> files, int numHilos) {
+	private static void executeThreads(List<String> files, int numHilos, String fileLog) {
 
 		ExecutorService executor = Executors.newFixedThreadPool(numHilos);
 		for (String file: files) {
-			EscribeCSV util = new EscribeCSV(file);
+			EscribeCSV util = new EscribeCSV(file, fileLog);
 			executor.execute(util);
 		}
 		executor.shutdown(); // Cierro el Executor

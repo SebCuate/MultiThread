@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
 
 /**
  * This class implements Runnable to be able to use with Executor
@@ -15,19 +16,22 @@ import java.io.FileWriter;
 public class EscribeCSV implements Runnable{
 	
 	private String fileName;
+	private String fileLog;
 		
 	public EscribeCSV() {
 		
 	}
 	
-	public EscribeCSV(String fileName) {
+	public EscribeCSV(String fileName, String fileLog) {
 		this.fileName = fileName;
+		this.fileLog = fileLog;
 	}
 	
 	@Override
 	public void run() {
 		System.out.println("soy el hilo "+ Thread.currentThread());
 		escribeArchivo(fileName);
+		writeInLog(fileName, fileLog);
 	}
 	
 	private void escribeArchivo(String fileName) {
@@ -53,4 +57,16 @@ public class EscribeCSV implements Runnable{
 		}
 	}
 	
+	private static void writeInLog(String fileName, String fileLog) {
+		
+		try {
+			BufferedWriter writer = new BufferedWriter(new FileWriter(fileLog, true));
+			writer.append("El hilo " + Thread.currentThread().toString() + " escribio en el log y proceso el archivo " + fileName +"\n");
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 }

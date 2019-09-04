@@ -18,7 +18,7 @@ public class EscribeArchivo {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true));
 			
-			for (int i = 0; i < 1000; i++) {
+			for (int i = 0; i < 35835; i++) {
 				String str = i + "|" +i + "|" +i + "|" +i + "|" +i + "|"+i ;    
 			    writer.append(str);
 			    writer.append("\n");
