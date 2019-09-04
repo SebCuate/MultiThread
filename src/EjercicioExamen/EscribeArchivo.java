@@ -3,6 +3,12 @@ package EjercicioExamen;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 
+/**
+ * This class write a big TXT file
+ * 
+ * @author Sebastian Cuatepotzo
+ *
+ */
 public class EscribeArchivo {
 
 	public static void main(String[] args) {

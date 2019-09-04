@@ -5,6 +5,15 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+
+/**
+ * This class manage the process to read the big TXT to:
+ * 1.- Divide it, cutting every n lines to get a new TXT file
+ * 2.- Transform the generated files into CSV
+ *  
+ * @author Sebastian Cuatepotzo
+ *
+ */
 public class SeparadorManager {
 
 	public static void main(String[] args) {

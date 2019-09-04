@@ -8,6 +8,12 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class just divide a big TXT file
+ * 
+ * @author Sebastian Cuatepotzo
+ *
+ */
 public class DivideArchivo {
 
 //	static String path =  "/home/elcuato/Documents/Workspaces/HackerRank/archivos/";

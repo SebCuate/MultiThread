@@ -5,6 +5,13 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 
+/**
+ * This class implements Runnable to be able to use with Executor
+ * Also it convert to from TXT to CSV 
+ * 
+ * @author Sebastian Cuatepotzo
+ *
+ */
 public class EscribeCSV implements Runnable{
 	
 	private String fileName;
